@@ -29,8 +29,10 @@
         include_sub_features: yes
         include_management_tools: yes
      # Copy the index.html file and rename to ansible.html under C:\inetpub\wwwroot. Must use \\ instead of \ for accessing directory on Windows server.
-    - name: Copy index text page
-      win_copy:
-      # src: "files/index.html"
-        src: "/tmp/files/index.html"        
-        dest: "C:\\inetpub\\wwwroot\\index.html"   
+    - name: Download earthrise.jpg to specified path through a proxy server.
+      ansible.windows.win_get_url:
+        url: https://github.com/Sanju7863/awx-windows1.git
+        dest: "C:\\inetpub\\wwwroot\\awx-windows1.git" 
+        #proxy_url: http://10.0.0.1:8080
+        #proxy_username: username
+        #proxy_password: password
