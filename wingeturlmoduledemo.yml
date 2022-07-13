@@ -3,7 +3,6 @@
   hosts: all
   become: false
   vars:
-    dest: "C:\\inetpub\\wwwroot\\index.html"
     myurl: "https://releases.ansible.com/ansible/ansible-2.9.25.tar.gz"
     mydest: 'C:\\inetpub\\wwwroot\\ansible-2.9.25.tar.gz'
   tasks:
