@@ -28,7 +28,7 @@
         restart: yes
         include_sub_features: yes
         include_management_tools: yes
-     # Copy the index.html file and rename to ansible.html under C:\inetpub\wwwroot. Must use \\ instead of \ for accessing directory on Windows server.
+     # Copy the index.html file under C:\inetpub\wwwroot. Must use \\ instead of \ for accessing directory on Windows server.
     - name: Copy index text page
       win_copy:
       # src: "files/index.html"
