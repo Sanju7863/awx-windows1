@@ -31,5 +31,5 @@
      # Copy the index.html file and rename to ansible.html under C:\inetpub\wwwroot. Must use \\ instead of \ for accessing directory on Windows server.
     - name: Copy index text page
       win_copy:
-        src: "tmp/index.html"
+        src: "files/index.html"
         dest: "C:\\inetpub\\wwwroot\\ansible.html"   
