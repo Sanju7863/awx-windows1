@@ -1,1 +1,36 @@
+---
+# Ansible playbook to run Windows Update and restart, if required
+# Hello hi hello
+# http://docs.ansible.com/ansible/win_updates_module.html
+# https://docs.ansible.com/ansible/win_reboot_module.html
 
+- name:  Windows Update
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Running Windows Update
+      win_updates:
+        category_names: ['SecurityUpdates','CriticalUpdates','UpdateRollups', 'Updates', 'DefinitionUpdates']
+        #category_names: ['SecurityUpdates']
+      register: result
+
+    # output results
+    - debug: var=result
+
+    # reboot only if required
+    - win_reboot:
+      when: result.reboot_required
+
+    - name: Install IIS
+      win_feature:
+        name: "Web-Server"
+        state: present
+        restart: yes
+        include_sub_features: yes
+        include_management_tools: yes
+     # Copy the index.html file and rename to ansible.html under C:\inetpub\wwwroot. Must use \\ instead of \ for accessing directory on Windows server.
+    - name: Copy index text page
+      win_copy:
+      # src: "files/index.html"
+        src: "/tmp/files/index.html"        
+        dest: "C:\\inetpub\\wwwroot\\index.html"   
