@@ -38,8 +38,8 @@
         vars:
           myurl: "https://releases.ansible.com/ansible/ansible-2.9.25.tar.gz"
           mydest: 'C:\\inetpub\\wwwroot\\ansible-2.9.25.tar.gz'
-        tasks:
-          - name: download file
-            ansible.windows.win_get_url:
-              url: "{{ myurl }}"
-              dest: "{{ mydest }}"    
+      tasks:
+        - name: download file
+          ansible.windows.win_get_url:
+            url: "{{ myurl }}"
+            dest: "{{ mydest }}"    
