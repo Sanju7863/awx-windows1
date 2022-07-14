@@ -28,18 +28,3 @@
         restart: yes
         include_sub_features: yes
         include_management_tools: yes
-     # Copy the index.html file under C:\inetpub\wwwroot. Must use \\ instead of \ for accessing directory on Windows server.
-    #- name: Copy index text page
-    #  win_copy:
-      # src: "files/index.html"
-      #  src: "/tmp/files/index.html"        
-      #  dest: "C:\\inetpub\\wwwroot\\index.html"   
-    - name: win_get_url module demo
-        vars:
-          myurl: "https://releases.ansible.com/ansible/ansible-2.9.25.tar.gz"
-          mydest: "C:\\inetpub\\wwwroot\\ansible-2.9.25.tar.gz"
-      tasks:
-        - name: download file
-          ansible.windows.win_get_url:
-            url: "{{ myurl }}"
-            dest: "{{ mydest }}"    
