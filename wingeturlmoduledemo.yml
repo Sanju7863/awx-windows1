@@ -10,3 +10,19 @@
       ansible.windows.win_get_url:
         url: "{{ myurl }}"
         dest: "{{ mydest }}"
+
+
+++++++++++++++++++++++++++++++++++++++++++++++
+
+subnet-255.255.240.0
+address-172.22.10.<2 to 254>
+gateway-172.22.10.1
+nameserver-8.8.8.8,4.4.4.4
+search domain- leave empty
+
+
+
+
+
+
+
